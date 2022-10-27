@@ -9,16 +9,378 @@ html { box-sizing: border-box; }
 	Jedeme retro černobíle (až na tu modrou), dnes další barvy nepotřebujeme.
 
 	FONTY
-	Merriweather		základní font na stránce
+	Merriweather			základní font na stránce
 	Raleway					nadpisy a menu
 	Oba fonty jsou dostupné na Google Fonts.
 */
 
+:root {
+	--bila: #ffffff;
+	--svetla: #f5f5f5;
+	--seda: #cccccc;
+	--tmava: #636e72;
+	--modra: #629fe0;
+	--cerna: #000000;
+}
+
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #f5f5f5;
+	background-color: var(--svetla);
 	font-size: 16px;
 	line-height: 1.6;
+	font-family: 'Merriweather', serif;
 }
 
+.obsah {
+	padding: 0;
+}
+
+header, .obsah, footer {
+	margin: 0 auto;
+	max-width: 540px;
+	overflow: auto;
+}
+
+@media screen and (min-width: 541px) {
+	header, .obsah, footer {
+		max-width: 960px;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	header {
+		max-width: 100%;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.obsah {
+		max-width: 960px;
+		box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.1);
+	}
+}
+
+.obsah {
+	background-color: var(--bila);
+}
+
+
+header {
+	text-align: center;
+	color: var(--bila);
+	background-color: var(--cerna);
+	background-image: url(images/island-hlavicka.jpg);
+	background-size: cover;
+	padding: 35px;
+	position: relative;
+}
+
+header::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+header h1, header p {
+	position: relative;
+}
+
+.autor {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.autor::before {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 2px;
+	background-color: var(--bila);
+	opacity: 0.7;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+
+h1, h2 {
+	font-family: 'Raleway', serif;
+}
+
+h1 {
+	font-size: 50px;
+	margin: 0;
+}
+
+h2::after {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 4px;
+	background-color: var(--modra);
+	margin-left: -20px;
+	margin-top: 20px;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 20px 0;
+	padding: 0 30px;
+}
+
+@media screen and (min-width: 541px) {
+	nav ul {
+		display: flex;
+		margin: 30px 0;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	nav ul {
+		display: block;
+		margin: 20px 0;
+	}
+}
+
+nav ul li {
+	font-family: 'Raleway', serif;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #f6f6f6;
+}
+
+@media screen and (min-width: 541px) {
+	nav ul li {
+		flex: 0 0 25%;
+		border-top: 1px solid #f6f6f6;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	nav ul li {
+		border-top: 0;
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	li + li {
+		border-left: 1px solid #f6f6f6;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	li + li {
+		border-left: 0;
+	}
+}
+
+
+nav a {
+	text-decoration: none;
+	color: var(--seda);
+}
+
+nav a:hover {
+	color: var(--tmava);
+}
+
+@media screen and (min-width: 960px) {
+	.menu-layout {
+		display: grid;
+		grid-template-columns: 250px 710px;
+		grid-template-areas: "leva prava";
+	}
+
+	.menu-layout nav {
+		grid-area: leva;
+	}
+
+	.menu-layout .section-inner {
+		grid-area: prava;
+	}
+}
+
+/* OBRÁZKY START */
+
+.images {
+	margin-top: 40px;
+	position: relative;
+}
+
+@media screen and (min-width: 541px) {
+	.images {
+		margin-top: 0;
+	}
+}
+
+.images img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media screen and (min-width: 541px) {
+	.images img {
+		display: block;
+	}
+}
+
+/* OBRÁZKY END */
+
+/* GALERIE START */
+
+.foto {
+	margin: 5px 0;
+}
+
+@media screen and (min-width: 541px) {
+	.foto {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.foto img {
+	width: 100%;
+}
+
+@media screen and (min-width: 541px) {
+	.foto img {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.galerie-layout {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.foto {
+		flex: 0 0 50%;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.foto {
+		flex: 1 0 calc(100% / 3);
+	}
+}
+
+/* GALERIE END */
+
+section {
+	padding: 10px 0;
+}
+
+@media screen and (min-width: 960px) {
+	.proc {
+		display: grid;
+		grid-template-columns: 710px 250px;
+		grid-template-areas: "leva ." "foto foto";
+	}
+
+	.proc .section-inner {
+		grid-area: leva;
+	}
+
+	.proc .images {
+		grid-area: foto;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.videt {
+		display: grid;
+		grid-template-columns: 250px 710px;
+		grid-template-areas: ". prava1" "foto foto" ". prava2";
+	}
+
+	.videt .sidebar1 {
+		grid-area: prava1;
+	}
+
+	.videt .images {
+		grid-area: foto;
+	}
+
+	.videt .sidebar2 {
+		grid-area: prava2;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.galerie {
+		padding-bottom: 0;
+	}
+}
+
+.section-inner {
+	padding: 0 20px;
+}
+
+.meta {
+	color: var(--seda);
+	font-size: 12px;
+	text-align: center;
+	margin: 0;
+}
+
+.meta a {
+	color: var(--seda);
+}
+
+@media screen and (min-width: 541px) {
+	.meta a {
+		color: var(--bila);
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.foto .meta {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.images .meta {
+		position: absolute;
+		right: 15px;
+		bottom: 15px;
+		color: var(--bila);
+	}
+
+	/* .images {
+		border: 1px solid red;
+	} */
+}
+
+.foto p::first-line {
+	font-weight: bold;
+}
+
+footer {
+	margin: 0 auto;
+	color: var(--tmava);
+	font-size: 10px;
+	background-image: linear-gradient(to bottom, var(--seda) 0%, var(--svetla) 100%);
+	padding: 20px;
+}
+
+@media screen and (min-width: 960px) {
+	footer {
+		max-width: 960px;
+		background-image: none;
+	}
+}
+
+footer a {
+	color: var(--tmava);
+	text-decoration: none;
+}
