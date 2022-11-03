@@ -27,7 +27,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--svetla);
-	font-size: 16px;
+	font-size: 16px; /*16px*/
 	line-height: 1.6;
 	font-family: 'Merriweather', serif;
 }
@@ -39,13 +39,13 @@ body {
 
 header, .obsah, footer {
 	margin: 0 auto;
-	max-width: 540px;
+	max-width: 540px; /*540px*/
 	overflow: auto;
 }
 
 @media screen and (min-width: 541px) {
 	header, .obsah, footer {
-		max-width: 960px;
+		max-width: 960px; /*960px*/
 	}
 }
 
@@ -58,9 +58,9 @@ header, .obsah, footer {
 
 @media screen and (min-width: 960px) {
 	.obsah {
-		max-width: 960px;
+		max-width: 960px; /*960px*/
 		box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.1);
-		margin-top: -60px;
+		margin-top: -60px; /*-60px*/
 		z-index: 1;
 	}
 }
@@ -71,7 +71,7 @@ header {
 	background-color: var(--cerna);
 	background-image: url(images/island-hlavicka.jpg);
 	background-size: cover;
-	padding: 35px;
+	padding: 35px; /*35px*/
 	position: relative;
 }
 
@@ -91,10 +91,10 @@ header::before {
 
 @media screen and (min-width: 960px) {
 	.text {
-		max-width: 650px;
+		max-width: 650px; /*650px*/
 		margin-left: auto;
 		margin-right: auto;
-		padding: 50px 0;
+		padding: 50px 0; /*50px 0*/
 	}
 }
 
@@ -105,12 +105,12 @@ header::before {
 .autor::before {
 	content: "";
 	display: block;
-	width: 70px;
-	height: 2px;
+	width: 70px; /*70px*/
+	height: 2px; /*2px*/
 	background-color: rgba(255, 255, 255, 0.7);
 	opacity: 0.7;
 	margin: 0 auto;
-	margin-bottom: 15px;
+	margin-bottom: 15px; /*15px*/
 }
 
 h1, h2 {
@@ -118,60 +118,65 @@ h1, h2 {
 }
 
 h1 {
-	font-size: 50px;
+	font-size: 50px; /*50px*/
 	margin: 0;
+	letter-spacing: 1px; /*1px*/
+}
+
+h2 {
+	letter-spacing: 0.5px; /*0.5px*/
 }
 
 @media screen and (min-width: 960px) {
 	h1 {
-		font-size: 90px;
-		letter-spacing: 6px;
+		font-size: 90px; /*90px*/
+		letter-spacing: 6px; /*6px*/
 	}
 }
 
 @media screen and (min-width: 960px) {
 	h2 {
-		font-size: 36px;
-		letter-spacing: 1px;
+		font-size: 36px; /*36px*/
+		letter-spacing: 1px; /*1px*/
 	}
 }
 
 h2::after {
 	content: "";
 	display: block;
-	width: 70px;
-	height: 4px;
+	width: 70px; /*70px*/
+	height: 4px; /*4px*/
 	background-color: var(--modra);
-	margin-left: -20px;
-	margin-top: 20px;
+	margin-left: -20px; /*-20px*/
+	margin-top: 20px; /*20px*/
 }
 
 nav ul {
 	list-style-type: none;
-	margin: 20px 0;
-	padding: 0 30px;
+	margin: 20px 0; /*20px 0*/
+	padding: 0 30px; /*0 30px*/
 }
 
 @media screen and (min-width: 541px) {
 	nav ul {
 		display: flex;
-		margin: 30px 0;
+		margin: 30px 0; /*30px 0*/
 	}
 }
 
 @media screen and (min-width: 960px) {
 	nav ul {
 		display: block;
-		margin: 20px 0;
+		margin: 20px 0; /*20px 0*/
 	}
 }
 
 nav ul li {
 	font-family: 'Raleway', serif;
-	font-size: 12px;
+	font-size: 12px; /*12px*/
 	text-transform: uppercase;
 	text-align: center;
-	padding: 10px 0;
+	padding: 10px 0; /*10px 0*/
 	border-bottom: 1px solid #f6f6f6;
 }
 
@@ -214,7 +219,7 @@ nav a:hover {
 @media screen and (min-width: 960px) {
 	.menu-layout {
 		display: grid;
-		grid-template-columns: 250px 710px;
+		grid-template-columns: 250px 710px; /*250px 710px*/
 		grid-template-areas: "leva prava";
 	}
 
@@ -230,13 +235,29 @@ nav a:hover {
 /* OBRÁZKY START */
 
 .images {
-	margin-top: 40px;
-	position: relative;
+	margin-top: 40px; /*40px*/
+	/* position: relative; */
 }
 
 @media screen and (min-width: 541px) {
 	.images {
 		margin-top: 0;
+		display: grid;
+		grid-template-areas: "prostor";
+	}
+
+	.images .img {
+		grid-area: prostor;
+		align-self: center;
+	}
+
+	.images .meta {
+		grid-area: prostor;
+		align-self: flex-end;
+		text-align: right;
+		color: var(--bila);
+		padding-right: 15px; /*15px*/
+		padding-bottom: 15px; /*15px*/
 	}
 }
 
@@ -245,18 +266,31 @@ nav a:hover {
 	height: auto;
 }
 
-@media screen and (min-width: 541px) {
+/* @media screen and (min-width: 541px) {
 	.images img {
 		display: block;
 	}
-}
+} */
+
+/* @media screen and (min-width: 541px) {
+	.images .meta {
+		position: absolute;
+		right: 15px;
+		bottom: 15px;
+		color: var(--bila);
+	}
+
+	.images {
+		border: 1px solid red;
+	}
+} */
 
 /* OBRÁZKY END */
 
 /* GALERIE START */
 
 .foto {
-	margin: 5px 0;
+	margin: 5px 0; /*5px 0*/
 }
 
 @media screen and (min-width: 541px) {
@@ -273,6 +307,12 @@ nav a:hover {
 @media screen and (min-width: 541px) {
 	.foto img {
 		display: block;
+	}
+}
+
+@media screen and (min-width: 541px) {
+	.galerie {
+		padding-bottom: 0;
 	}
 }
 
@@ -295,16 +335,22 @@ nav a:hover {
 	}
 }
 
+@media screen and (min-width: 541px) {
+	.foto .meta {
+		display: none;
+	}
+}
+
 /* GALERIE END */
 
 section {
-	padding: 10px 0;
+	padding: 10px 0; /*10px 0*/
 }
 
 @media screen and (min-width: 960px) {
 	.proc {
 		display: grid;
-		grid-template-columns: 710px 250px;
+		grid-template-columns: 710px 250px; /*710px 250px*/
 		grid-template-areas: "leva ." "foto foto";
 	}
 
@@ -320,7 +366,7 @@ section {
 @media screen and (min-width: 960px) {
 	.videt {
 		display: grid;
-		grid-template-columns: 250px 710px;
+		grid-template-columns: 250px 710px; /*710px 250px*/
 		grid-template-areas: ". prava1" "foto foto" ". prava2";
 	}
 
@@ -337,14 +383,8 @@ section {
 	}
 }
 
-@media screen and (min-width: 541px) {
-	.galerie {
-		padding-bottom: 0;
-	}
-}
-
 .section-inner {
-	padding: 0 20px;
+	padding: 0 20px; /*0 20px*/
 }
 
 .meta {
@@ -364,25 +404,6 @@ section {
 	}
 }
 
-@media screen and (min-width: 541px) {
-	.foto .meta {
-		display: none;
-	}
-}
-
-@media screen and (min-width: 541px) {
-	.images .meta {
-		position: absolute;
-		right: 15px;
-		bottom: 15px;
-		color: var(--bila);
-	}
-
-	/* .images {
-		border: 1px solid red;
-	} */
-}
-
 .foto p::first-line {
 	font-weight: bold;
 }
@@ -390,17 +411,17 @@ section {
 footer {
 	margin: 0 auto;
 	color: var(--tmava);
-	font-size: 10px;
+	font-size: 10px; /*10px*/
 	background-image: linear-gradient(to bottom, var(--seda) 0%, var(--svetla) 100%);
-	padding: 20px;
+	padding: 20px; /*20px*/
 }
 
 @media screen and (min-width: 960px) {
 	footer {
-		max-width: 960px;
-		font-size: 16px;
+		max-width: 960px; /*960px*/
+		font-size: 16px; /*16px*/
 		background-image: none;
-		padding: 20px 20px 20px 0;
+		padding: 20px 20px 20px 0; /*20px 20px 20px 0*/
 	}
 }
 
