@@ -168,6 +168,7 @@ nav ul {
 	nav ul {
 		display: block;
 		margin: 20px 0; /*20px 0*/
+		padding: 0 40px; /*0 40px*/
 	}
 }
 
@@ -206,7 +207,6 @@ nav ul li {
 	}
 }
 
-
 nav a {
 	text-decoration: none;
 	color: var(--seda);
@@ -221,6 +221,7 @@ nav a:hover {
 		display: grid;
 		grid-template-columns: 250px 710px; /*250px 710px*/
 		grid-template-areas: "leva prava";
+		margin-top: 20px;
 	}
 
 	.menu-layout nav {
@@ -236,10 +237,10 @@ nav a:hover {
 
 .images {
 	margin-top: 40px; /*40px*/
-	/* position: relative; */
+	position: relative;
 }
 
-@media screen and (min-width: 541px) {
+/* @media screen and (min-width: 541px) {
 	.images {
 		margin-top: 0;
 		display: grid;
@@ -256,34 +257,28 @@ nav a:hover {
 		align-self: flex-end;
 		text-align: right;
 		color: var(--bila);
-		padding-right: 15px; /*15px*/
-		padding-bottom: 15px; /*15px*/
+		padding-right: 15px;
+		padding-bottom: 15px;
 	}
-}
+} */
 
 .images img {
 	max-width: 100%;
 	height: auto;
 }
 
-/* @media screen and (min-width: 541px) {
-	.images img {
-		display: block;
-	}
-} */
-
-/* @media screen and (min-width: 541px) {
+@media screen and (min-width: 541px) {
 	.images .meta {
 		position: absolute;
-		right: 15px;
-		bottom: 15px;
+		right: 15px; /*15px*/
+		bottom: 15px; /*15px*/
 		color: var(--bila);
 	}
 
-	.images {
+	/* .images {
 		border: 1px solid red;
-	}
-} */
+	} */
+}
 
 /* OBRÁZKY END */
 
