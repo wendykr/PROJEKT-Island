@@ -23,6 +23,10 @@ html { box-sizing: border-box; }
 	--cerna: #000000;
 }
 
+/* .border {
+	border: 1px solid red;
+} */
+
 body {
 	margin: 0;
 	padding: 0;
@@ -216,68 +220,53 @@ nav a:hover {
 	color: var(--tmava);
 }
 
-@media screen and (min-width: 960px) {
-	.menu-layout {
-		display: grid;
-		grid-template-columns: 250px 710px; /*250px 710px*/
-		grid-template-areas: "leva prava";
-		margin-top: 20px;
-	}
+/* OBRÁZKY START */
 
-	.menu-layout nav {
-		grid-area: leva;
-	}
+.meta, .photo__caption {
+	color: var(--seda);
+	font-size: 12px;
+	text-align: center;
+	margin: 0;
+}
 
-	.menu-layout .section-inner {
-		grid-area: prava;
+.meta a, .photo__caption a {
+	color: var(--seda);
+}
+
+@media screen and (min-width: 541px) {
+	.meta a, .photo__caption a {
+		color: var(--bila);
 	}
 }
 
-/* OBRÁZKY START */
-
-.images {
+.photo {
 	margin-top: 40px; /*40px*/
 	position: relative;
 }
 
-/* @media screen and (min-width: 541px) {
-	.images {
-		margin-top: 0;
-		display: grid;
-		grid-template-areas: "prostor";
-	}
-
-	.images .img {
-		grid-area: prostor;
-		align-self: center;
-	}
-
-	.images .meta {
-		grid-area: prostor;
-		align-self: flex-end;
-		text-align: right;
-		color: var(--bila);
-		padding-right: 15px;
-		padding-bottom: 15px;
-	}
-} */
-
-.images img {
+.photo__image {
 	max-width: 100%;
 	height: auto;
 }
 
 @media screen and (min-width: 541px) {
-	.images .meta {
-		position: absolute;
-		right: 15px; /*15px*/
-		bottom: 15px; /*15px*/
-		color: var(--bila);
+	.photo {
+		margin-top: 0;
+		display: grid;
 	}
 
-	/* .images {
-		border: 1px solid red;
-	} */
+	.photo__image {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+	}
+
+	.photo__caption {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		align-self: flex-end;
+		text-align: right;
+		padding: 15px;
+	}
 }
 
 /* OBRÁZKY END */
@@ -338,65 +327,16 @@ nav a:hover {
 
 /* GALERIE END */
 
-section {
-	padding: 10px 0; /*10px 0*/
-}
-
-@media screen and (min-width: 960px) {
-	.proc {
-		display: grid;
-		grid-template-columns: 710px 250px; /*710px 250px*/
-		grid-template-areas: "leva ." "foto foto";
-	}
-
-	.proc .section-inner {
-		grid-area: leva;
-	}
-
-	.proc .images {
-		grid-area: foto;
-	}
-}
-
-@media screen and (min-width: 960px) {
-	.videt {
-		display: grid;
-		grid-template-columns: 250px 710px; /*710px 250px*/
-		grid-template-areas: ". prava1" "foto foto" ". prava2";
-	}
-
-	.videt .sidebar1 {
-		grid-area: prava1;
-	}
-
-	.videt .images {
-		grid-area: foto;
-	}
-
-	.videt .sidebar2 {
-		grid-area: prava2;
-	}
-}
-
 .section-inner {
 	padding: 0 20px; /*0 20px*/
 }
 
-.meta {
-	color: var(--seda);
-	font-size: 12px;
-	text-align: center;
+figure {
 	margin: 0;
 }
 
-.meta a {
-	color: var(--seda);
-}
-
-@media screen and (min-width: 541px) {
-	.meta a {
-		color: var(--bila);
-	}
+figcaption {
+	padding: 0;
 }
 
 .foto p::first-line {
@@ -423,4 +363,31 @@ footer {
 footer a {
 	color: var(--tmava);
 	text-decoration: none;
+}
+
+@media screen and (min-width: 960px) {
+	.obsah {
+		display: grid;
+		grid-template-columns: [leva] 2fr [stred-start] 3fr [stred-end] 2fr [prava];
+	}
+
+	nav {
+		grid-column: leva;
+		}
+
+	.right {
+		grid-column: stred-start / prava;
+	}
+
+	.photo {
+		grid-column: leva / prava;
+	}
+
+	.galerie, .galerie-layout {
+		grid-column: leva / prava;
+	}
+	
+	.left {
+		grid-column: leva / stred-end;
+	}
 }
