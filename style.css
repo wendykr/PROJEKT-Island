@@ -65,6 +65,7 @@ header, .obsah, footer {
 		max-width: 960px; /*960px*/
 		box-shadow: 5px 3px 7px rgba(0, 0, 0, 0.1);
 		margin-top: -60px; /*-60px*/
+		padding-top: 20px;  /*20px*/
 		z-index: 1;
 	}
 }
@@ -222,36 +223,42 @@ nav a:hover {
 
 /* OBRÁZKY START */
 
-.meta, .photo__caption {
+.photo__caption {
 	color: var(--seda);
 	font-size: 12px;
 	text-align: center;
 	margin: 0;
 }
 
-.meta a, .photo__caption a {
+@media screen and (min-width: 541px) {
+	.photo__caption {
+		color: var(--bila);
+	}
+}
+
+.photo__caption a {
 	color: var(--seda);
 }
 
 @media screen and (min-width: 541px) {
-	.meta a, .photo__caption a {
+	.photo__caption a {
 		color: var(--bila);
 	}
 }
 
 .photo {
-	margin-top: 40px; /*40px*/
+	margin: 40px 0 40px 0; /*40px 0 40px 0*/
 	position: relative;
 }
 
 .photo__image {
 	max-width: 100%;
 	height: auto;
+	padding: 0;
 }
 
 @media screen and (min-width: 541px) {
 	.photo {
-		margin-top: 0;
 		display: grid;
 	}
 
@@ -273,54 +280,48 @@ nav a:hover {
 
 /* GALERIE START */
 
-.foto {
+.galerie-grid .photo {
 	margin: 5px 0; /*5px 0*/
 }
 
 @media screen and (min-width: 541px) {
-	.foto {
+	.galerie-grid .photo {
 		margin: 0;
 		padding: 0;
 	}
 }
 
-.foto img {
+.galerie-grid .photo__image {
 	width: 100%;
 }
 
 @media screen and (min-width: 541px) {
-	.foto img {
+	.galerie-grid .photo__image {
 		display: block;
 	}
 }
 
 @media screen and (min-width: 541px) {
-	.galerie {
-		padding-bottom: 0;
-	}
-}
-
-@media screen and (min-width: 541px) {
-	.galerie-layout {
+	.galerie-grid {
 		display: flex;
 		flex-wrap: wrap;
 	}
 }
 
 @media screen and (min-width: 541px) {
-	.foto {
+	.galerie-grid .photo {
 		flex: 0 0 50%;
 	}
 }
 
 @media screen and (min-width: 960px) {
-	.foto {
+	.galerie-grid .photo {
 		flex: 1 0 calc(100% / 3);
 	}
 }
 
 @media screen and (min-width: 541px) {
-	.foto .meta {
+	.galerie-grid .photo--hidden {
 		display: none;
 	}
 }
@@ -331,15 +332,7 @@ nav a:hover {
 	padding: 0 20px; /*0 20px*/
 }
 
-figure {
-	margin: 0;
-}
-
-figcaption {
-	padding: 0;
-}
-
-.foto p::first-line {
+.photo p::first-line {
 	font-weight: bold;
 }
 
@@ -365,6 +358,8 @@ footer a {
 	text-decoration: none;
 }
 
+/* GRID LAYOUT START */
+
 @media screen and (min-width: 960px) {
 	.obsah {
 		display: grid;
@@ -383,7 +378,7 @@ footer a {
 		grid-column: leva / prava;
 	}
 
-	.galerie, .galerie-layout {
+	.galerie-grid {
 		grid-column: leva / prava;
 	}
 	
@@ -391,3 +386,5 @@ footer a {
 		grid-column: leva / stred-end;
 	}
 }
+
+/* GRID LAYOUT END */
